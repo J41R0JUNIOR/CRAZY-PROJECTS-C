@@ -1,0 +1,3 @@
+//Minidicionário
+#include <stdio.h>
+
