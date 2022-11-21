@@ -1,4 +1,3 @@
-
 /*Program to get difference of two dates in years, months, days*/
 #include<stdio.h>
 int main(void)
