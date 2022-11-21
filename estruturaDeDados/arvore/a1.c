@@ -20,10 +20,9 @@ void inserirEsquerda(No *no, int  valor){
     }else{
         if(valor < no->esquerda->conteudo){
             inserirEsquerda(no->esquerda, valor);
-
         }if(valor > no->esquerda->conteudo){
             inserirDireita(no->esquerda, valor);
-        }
+        } 
     }
 }
 
@@ -37,7 +36,6 @@ void inserirDireita(No *no, int valor){
     }else{
         if(valor > no->direita->conteudo){
             inserirDireita(no->direita, valor);
-
         }if(valor < no->esquerda->conteudo){
             inserirEsquerda(no->esquerda, valor);
         }
@@ -54,7 +52,6 @@ void inserir(ArvB *arv, int valor){
     }else{
         if(valor < arv->raiz->conteudo){
             inserirEsquerda(arv->raiz, valor);
-            
         }if(valor > arv->raiz->conteudo){
             inserirDireita(arv->raiz, valor);
         }
@@ -77,7 +74,6 @@ int main(void){
     do{
         printf("\n0 - sair\n1 - inserir\n 2 - imprimir\n");
         scanf("%d", &op);
-
 
         switch(op){
         case 0:
