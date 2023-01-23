@@ -20,7 +20,7 @@ int main(void){
     printf("%i %i - minuto\n", hoje.pMinuto, *hoje.pMinuto);
     printf("%i %i - segundo\n", hoje.pSegundo, *hoje.pSegundo);
 
-    *hoje.pSegundo = 1000;
+    hoje.pSegundo = 1000;
     printf("%i %i - segundo\n", hoje.pSegundo, *hoje.pSegundo);
 
     return 0;

@@ -1,40 +1,27 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void)
-{
-    
+//0,0,0,0
+//0,0,0,0
 
-    
-    float notasAlunos [4][4] = {0};
-    float mediasAlunos [4] = {0}; 
+int main (void){
 
-    float media = 0;
-    int aluno = 0;
-    int notas = 0;
- 
+    int Alunos[2][4] = {0};
+    int notas=0;
 
-	
-    for(aluno; aluno < 4; ++aluno)
-	{
-        printf("Insira as notas do aluno %i:\n",aluno + 1);
-        for(notas; notas < 4; ++notas)
-		{
-            scanf("%f", &notasAlunos[aluno][notas]);
+    printf("Digite as notas dos alunos:\n");
 
-            media += notasAlunos[aluno][notas];
-        }
-
-        mediasAlunos[aluno] = media / 4;
-        media = 0;
+    for(int i=0; i<4; i++){
+        scanf("%d",&Alunos[1][i]);
+        notas += Alunos[1][i];
     }
-    for(aluno; aluno < 4; ++aluno)
-	{
-        printf("A media do aluno %i e %.2f\n",aluno + 1, mediasAlunos[aluno]);
-    }
-    
+
+    printf("tudo = %i", notas);
+    int media = notas/4;
+    printf("\nMedia = %i", media);
+
+
 
     return 0;
-
 }
-            

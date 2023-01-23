@@ -5,8 +5,9 @@ struct lista{
     int valor;
     struct lista *proximo;
 };
-
+  
 struct lista *procurarValor(struct lista *pLista, int valor){
+
     while(pLista != (struct lista *) 0){
         if(pLista->valor == valor){
             return (pLista);

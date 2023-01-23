@@ -1,11 +1,12 @@
 #include <stdio.h>
 
 int somarVetor(int vetor[],  const int n){
-    int *ponteiroVet = vetor;
     int soma = 0;
+    int *ponteiro;
+    int const finalVetor = vetor + n;
 
-    for(int i=0; i < n; ++i){
-        soma += *(ponteiroVet + i);
+    for(ponteiro = vetor; ponteiro < finalVetor; ++ponteiro){
+        soma += *ponteiro;
     }
 
     return soma;

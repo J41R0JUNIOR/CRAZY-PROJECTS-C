@@ -2,13 +2,13 @@
 #include <stdio.h>
 int main(void){
 
-    void testeVariavel (int x);
+    //void testeVariavel (int x);
     void testePonteiro(int *pX);
     int teste = 1;
-    //int *pTeste = &teste;
+    int *pTeste = &teste;
 
-    testeVariavel(teste);
-    //testePonteiro(pTeste);
+    //testeVariavel(teste);
+    testePonteiro(pTeste);
 
     printf("%i\n",teste);
     

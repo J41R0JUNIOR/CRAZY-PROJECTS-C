@@ -10,8 +10,8 @@ int main (void){
 
     funcaoOrdem(vetor);
 
-        printf("Digite um valor no ponteiro pra ver a sua posicao: ");
-        scanf("%i", &key);
+    printf("Digite um valor no ponteiro pra ver a sua posicao: ");
+    scanf("%i", &key);
 
     buscaBinaria(vetor, key);
     return 0;
