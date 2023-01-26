@@ -1,2 +1,2 @@
-# CRAZY-PROJECTS
-Projetinhos de qualidade suspeita
+# CRAZY-PROJECTS-C
+Projetinhos de qualidade suspeita em linguagem C
