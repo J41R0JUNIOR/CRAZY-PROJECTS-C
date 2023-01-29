@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define PI 3.14159
+#define PI 3.141594
 #define DOIS_PI 2 * PI
 #define AREA_CIRCULO(raio) raio * raio * PI 
 
@@ -11,4 +11,4 @@ int main(){
 
 
     return 0;
-}
+} 
