@@ -13,6 +13,7 @@ int main(void){
         ++i;
 
     }
+    tNomes[i] = '\0';
     printf("%s",tNomes);
 
 
