@@ -23,19 +23,21 @@ int main (void){
         printf("Jogador 1 (i,j): \n");
         scanf("%i,%i", &i, &j);
 
-        printf("\n%i %i\n", i, j);
-
         while(verSeJaMarcou (tabuleiro, i, j)){
             printf("Jogador 1 (i,j): \n");
             scanf("%i,%i", &i, &j);
         }
+
         if(quemGanhou(tabuleiro) == 2){
             printf("O jogador 2 ganhou!!!");
             break;
-        }else if(quemGanhou(tabuleiro) == 1){
+        }
+        if(quemGanhou(tabuleiro) == 1){
             printf("O jogador 1 ganhou!!!");
             break;
         }
+        system("cls");
+
         tabuleiro[i][j] = 'x'; 
 
         for(int a = 0; a < 3; ++a){
@@ -50,6 +52,15 @@ int main (void){
 
         printf("\n");
 
+        if(quemGanhou(tabuleiro) == 2){
+            printf("O jogador 2 ganhou!!!");
+            break;
+        }
+        if(quemGanhou(tabuleiro) == 1){
+            printf("O jogador 1 ganhou!!!");
+            break;
+        }
+        
         printf("Jogador 2(i,j): \n");
         scanf("%i,%i",&i,&j);
 
@@ -61,21 +72,23 @@ int main (void){
         if(quemGanhou(tabuleiro) == 2){
             printf("O jogador 2 ganhou!!!");
             break;
-        }else if(quemGanhou(tabuleiro) == 1){
+        }
+        if(quemGanhou(tabuleiro) == 1){
             printf("O jogador 1 ganhou!!!");
             break;
         }
+        system("cls");
 
         tabuleiro[i][j] = 'o';
 
         if(quemGanhou(tabuleiro) == 2){
             printf("O jogador 2 ganhou!!!");
             break;
-        }else if(quemGanhou(tabuleiro) == 1){
+        }
+        if(quemGanhou(tabuleiro) == 1){
             printf("O jogador 1 ganhou!!!");
             break;
         }
-        printf("\n%i %i\n", i, j);
 
         for(int a = 0; a < 3; ++a){
             printf("\n");
@@ -88,8 +101,7 @@ int main (void){
     return 0;
 }
 
-//ctype.h para usar tlower() ou tupper()
-//system("cls");
+
 _Bool verSeTerminou(char tabuleiro[3][3]){
     for(int a = 0; a < 3; ++a){
         for(int b = 0; b < 3; ++b){
@@ -156,5 +168,4 @@ int quemGanhou(char tabuleiro[3][3]){
         return 1;
     }
     
-
 }
