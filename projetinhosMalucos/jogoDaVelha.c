@@ -10,13 +10,13 @@ int main (void){
     int quemGanhou(char tabuleiro[3][3]);
 
 
-        for(int a = 0; a < 3; ++a){
-            printf("\n");
-            for(int b = 0; b < 3; ++b){
-            printf("%c ", tabuleiro[a][b]);
-            }   
-        } 
+    for(int a = 0; a < 3; ++a){
         printf("\n");
+        for(int b = 0; b < 3; ++b){
+        printf("%c ", tabuleiro[a][b]);
+        }   
+    } 
+    printf("\n");
 
     while(verSeTerminou(tabuleiro)){
 
