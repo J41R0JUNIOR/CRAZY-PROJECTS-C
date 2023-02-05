@@ -9,13 +9,13 @@ int main (void){
     _Bool verSeJaMarcou (char tabuleiro[3][3], int i, int j);
     int quemGanhou(char tabuleiro[3][3]);
 
-
     for(int a = 0; a < 3; ++a){
         printf("\n");
         for(int b = 0; b < 3; ++b){
         printf("%c ", tabuleiro[a][b]);
         }   
     } 
+
     printf("\n");
 
     while(verSeTerminou(tabuleiro)){
@@ -32,10 +32,12 @@ int main (void){
             printf("O jogador 2 ganhou!!!");
             break;
         }
+
         if(quemGanhou(tabuleiro) == 1){
             printf("O jogador 1 ganhou!!!");
             break;
         }
+
         system("cls");
 
         tabuleiro[i][j] = 'x'; 
@@ -101,7 +103,6 @@ int main (void){
     return 0;
 }
 
-
 _Bool verSeTerminou(char tabuleiro[3][3]){
     for(int a = 0; a < 3; ++a){
         for(int b = 0; b < 3; ++b){
@@ -112,12 +113,14 @@ _Bool verSeTerminou(char tabuleiro[3][3]){
     }
     return 0;
 }
+
 _Bool verSeJaMarcou (char tabuleiro[3][3], int i, int j){
     if(tabuleiro[i][j] == 'x' || tabuleiro[i][j] == 'o'){
         return true;
     }
     return false;
 }
+
 int quemGanhou(char tabuleiro[3][3]){
     if(tabuleiro[0][0] == 'o' && tabuleiro[0][1] == 'o' && tabuleiro[0][2] == 'o'){
         return 2;
@@ -167,5 +170,5 @@ int quemGanhou(char tabuleiro[3][3]){
     if(tabuleiro[0][2] == 'x' && tabuleiro[1][1] == 'x' && tabuleiro[2][0] == 'x'){
         return 1;
     }
-    
+
 }
