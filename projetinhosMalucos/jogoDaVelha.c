@@ -2,7 +2,34 @@
 #include <stdbool.h>
 
 int main (void){
-    char tabuleiro[3][3] = {{'0','0','0'}, {'0','0','0'}, {'0','0','0'}};
+    char tabuleiro[3][3] = {{'0','0','0'},
+                            {'0','0','0'}, 
+                            {'0','0','0'}};
+    
+    int escolha = 0;
+
+
+    printf("Escolha o modo de jogo:\n(1)Jogar contra o computador\n(2)Jogar de dois\n");
+    scanf("%i",&escolha);
+
+    switch(escolha){
+        case 1:
+            jogoDaVelha(tabuleiro, 1);
+        break;
+        case 2:
+            jogoDaVelha(tabuleiro, 2);
+        break;
+        default:
+            printf("Escolha indisponivel!");
+    }
+
+
+    return 0;
+}
+
+
+void jogoDaVelha(char tabuleiro [3][3], int n){
+
     static int i = 1, j = 1;
 
     _Bool verSeTerminou(char tabuleiro[3][3]);
@@ -21,7 +48,7 @@ int main (void){
     while(verSeTerminou(tabuleiro)){
 
         printf("Jogador 1 (i,j): \n");
-        scanf("%i,%i", &i, &j);
+            scanf("%i,%i", &i, &j);
 
         while(verSeJaMarcou (tabuleiro, i, j)){
             printf("Jogador 1 (i,j): \n");
@@ -49,6 +76,7 @@ int main (void){
             }
         }
         if(verSeTerminou(tabuleiro) == 0){
+            printf("\nIxi, deu velha!!!");
             break;
         }
 
@@ -64,11 +92,20 @@ int main (void){
         }
         
         printf("Jogador 2(i,j): \n");
-        scanf("%i,%i",&i,&j);
+        if(n == 1){
+            
+        }else if (n ==2){
+            scanf("%i,%i",&i,&j);
+        }
 
         while(verSeJaMarcou (tabuleiro, i, j)){
             printf("Jogador 2(i,j): \n");
             scanf("%i,%i",&i,&j); 
+        }
+
+        if(verSeTerminou(tabuleiro) == 0){
+            printf("\nIxi, deu velha!!!");
+            break;
         }
 
         if(quemGanhou(tabuleiro) == 2){
@@ -101,6 +138,12 @@ int main (void){
     }
 
     return 0;
+
+}
+int computadorJogada(char tabuleiro[3][3]){
+
+    
+
 }
 
 _Bool verSeTerminou(char tabuleiro[3][3]){
