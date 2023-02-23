@@ -61,7 +61,7 @@ int main(void){
     if(resultadoPesquisa != -1){
         printf("%s\n",portugues[resultadoPesquisa].definicao);
     }else{
-        printf("Palavra nao encontrada");
+        printf("Palavra nao encontrada!");
     }
 
     return 0;

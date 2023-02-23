@@ -143,7 +143,7 @@ void jogoDaVelha(char tabuleiro [3][3], int n){
 int computadorJogada(char tabuleiro[3][3]){
 
     
-
+    
 }
 
 _Bool verSeTerminou(char tabuleiro[3][3]){
