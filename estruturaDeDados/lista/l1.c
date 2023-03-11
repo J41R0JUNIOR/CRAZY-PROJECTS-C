@@ -5,7 +5,7 @@ typedef struct no{
     struct no *proximo;
 }No;
 
-typedef struct {
+typedef struct{
     No *inicio;
     int tam;
 }Lista;
@@ -48,11 +48,10 @@ void imprimir(Lista *lista){
 
 int main (void){
     Lista lista;
+    int opcao, valor;
 
     lista.inicio = NULL;
     lista.tam = 0;
-
-    int opcao, valor;
 
     do{
         printf("1- Inserir no inicio\n2- Inserir no fim\n3- Imprimir\n4- Sair\n");
