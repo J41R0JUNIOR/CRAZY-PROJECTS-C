@@ -41,7 +41,7 @@ int main (void){
         }
     }
     
-    printf("%d", qtd);
+    printf("Quantidade de dias que se passaram: %d", qtd);
 
     return 0;
 }
