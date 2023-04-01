@@ -42,7 +42,7 @@ int main (void){
     default:
         break;
     }
-    printf("Escolha a Bebida:\n 1- Cha\n2- Suco Larnja\n3- Suco Melao\n4- Refrigerante Diet\nEscolha: ");
+    printf("Escolha a Bebida:\n  1- Cha\n2- Suco Larnja\n3- Suco Melao\n4- Refrigerante Diet\nEscolha: ");
     scanf("%d", &n);
     switch (n){
     case 1:
