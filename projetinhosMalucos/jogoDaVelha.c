@@ -2,6 +2,13 @@
 #include <stdbool.h>
 
 int main (void){
+
+    void jogoDaVelha(char tabuleiro [3][3], int n);
+    _Bool verSeTerminou(char tabuleiro[3][3]);
+    _Bool verSeJaMarcou (char tabuleiro[3][3], int i, int j);
+    int quemGanhou(char tabuleiro[3][3]);
+    
+
     char tabuleiro[3][3] = {{'0','0','0'},
                             {'0','0','0'}, 
                             {'0','0','0'}};
@@ -65,7 +72,7 @@ void jogoDaVelha(char tabuleiro [3][3], int n){
             break;
         }
 
-        system("cls");
+        //system("cls");
 
         tabuleiro[i][j] = 'x'; 
 
@@ -116,7 +123,7 @@ void jogoDaVelha(char tabuleiro [3][3], int n){
             printf("O jogador 1 ganhou!!!");
             break;
         }
-        system("cls");
+        //system("cls");
 
         tabuleiro[i][j] = 'o';
 
@@ -137,7 +144,6 @@ void jogoDaVelha(char tabuleiro [3][3], int n){
         }
     }
 
-    return 0;
 
 }
 int computadorJogada(char tabuleiro[3][3]){
