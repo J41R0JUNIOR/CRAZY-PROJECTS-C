@@ -38,7 +38,6 @@ int main (void){
 
     scanf("%d", &escolha);
     
-
     if(escolha == 1){
         printf("%f", c_para_f(x)); 
     }else if(escolha == 2){
