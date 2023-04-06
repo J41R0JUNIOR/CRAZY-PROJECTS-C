@@ -19,8 +19,8 @@
 
 int main (void){
 
-    float x = 30, resultado;
-    char escolha1, escolha2;
+    float x, resultado;
+    int escolha;
 
     float c_para_f (float x);
     float f_para_c (float x);
@@ -31,28 +31,29 @@ int main (void){
     float k_para_r (float x);
     float r_para_k (float x);
 
-    printf("De: \n");
-    scanf("%c", &escolha1);
-    fflush(stdin);
-    printf("para \n");
-    scanf("%c", &escolha2);
-    fflush(stdin);
+    printf("Digite o valor: ");
+    scanf("%f", &x);
 
-    if(escolha1 == 'c' && escolha2 == 'f'){
+    printf("1- De graus Celsius(C) para graus Fahrenheit(F)\n2-  De graus Fahrenheit (F) para graus Celsius (C)\n3- De graus Celsius (C) para graus Kelvin (K)\n4- De graus Kelvin (K) para graus Celsius (C)\n5- De graus Celsius (C) para graus Réaumur (Re)\n6- De graus Réaumur (Re) para graus Celsius (C)\n7- De graus Kelvin (K) para graus Rankine (R)\n8- De graus Rankine (R) para graus Kelvin (K)\n");
+
+    scanf("%d", &escolha);
+    
+
+    if(escolha == 1){
         printf("%f", c_para_f(x)); 
-    }else if(escolha1 == 'f' && escolha2 == 'c'){
+    }else if(escolha == 2){
         printf("%f", f_para_c (x)); 
-    }else if(escolha1 == 'c' && escolha2 == 'k'){
+    }else if(escolha == 3){
         printf("%f", c_para_k (x)); 
-    }else if(escolha1 == 'k' && escolha2 == 'c'){
+    }else if(escolha == 4){
         printf("%f", k_para_c (x)); 
-    }else if(escolha1 == 'c' && escolha2 == 're'){
+    }else if(escolha == 5){
         printf("%f", c_para_re (x)); 
-    }else if(escolha1 == 're' && escolha2 == 'c'){
+    }else if(escolha == 6){
         printf("%f", re_para_c (x)); 
-    }else if(escolha1 == 'k' && escolha2 == 'r'){
+    }else if(escolha == 7){
         printf("%f", k_para_r (x)); 
-    }else if(escolha1 == 'r' && escolha2 == 'k'){
+    }else if(escolha == 8){
         printf("%f", r_para_k (x)); 
     }
 
