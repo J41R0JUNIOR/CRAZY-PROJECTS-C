@@ -34,7 +34,7 @@ int main (void){
     printf("Digite o valor: ");
     scanf("%f", &x);
 
-    printf("1- De graus Celsius(C) para graus Fahrenheit(F)\n2-  De graus Fahrenheit (F) para graus Celsius (C)\n3- De graus Celsius (C) para graus Kelvin (K)\n4- De graus Kelvin (K) para graus Celsius (C)\n5- De graus Celsius (C) para graus Réaumur (Re)\n6- De graus Réaumur (Re) para graus Celsius (C)\n7- De graus Kelvin (K) para graus Rankine (R)\n8- De graus Rankine (R) para graus Kelvin (K)\n");
+    printf("1- De graus Celsius(C) para graus Fahrenheit(F)\n2- De graus Fahrenheit (F) para graus Celsius (C)\n3- De graus Celsius (C) para graus Kelvin (K)\n4- De graus Kelvin (K) para graus Celsius (C)\n5- De graus Celsius (C) para graus Réaumur (Re)\n6- De graus Réaumur (Re) para graus Celsius (C)\n7- De graus Kelvin (K) para graus Rankine (R)\n8- De graus Rankine (R) para graus Kelvin (K)\n");
 
     scanf("%d", &escolha);
     
