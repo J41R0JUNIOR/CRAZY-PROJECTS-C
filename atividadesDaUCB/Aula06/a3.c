@@ -21,4 +21,5 @@ float inflacionarPreco(float preco) {
         preco *= 1.20; // inflaciona em 20%
     }
     return preco;
+    
 }
