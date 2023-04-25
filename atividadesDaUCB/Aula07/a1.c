@@ -12,7 +12,13 @@ int main (void){
     a[5] = 7;
 
     int soma = a[0] + a[1] + a[2] + a[3] + a[4] + a[5];
-    printf("%d",soma);
+    printf("%d\n",soma);
+
+    a[4] = 100;
+    for(int i=0; i < 6; i++){
+        printf("%d", a[i]);
+        printf("\n");
+    }
 
     return 0;
 }
