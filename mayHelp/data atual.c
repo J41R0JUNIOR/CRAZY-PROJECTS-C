@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 
-int main()
-{
+int main(){
   time_t t = time(NULL);
   struct tm tm = *localtime(&t);
 
@@ -12,6 +11,7 @@ int main()
 //hora
   printf("hora: %02d:%02d:%02d",tm.tm_hour, tm.tm_min, tm.tm_sec);
 
+  printf("testando...");
+
   return 0;
 }
-
