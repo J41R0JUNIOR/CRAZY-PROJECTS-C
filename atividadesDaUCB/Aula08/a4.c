@@ -19,21 +19,26 @@ int main (void){
     float valorSalario = 0;
 
     printf("Digite o sexo: (M/F): ");
-    scanf("%c", &sexo);
+    scanf(" %c", &sexo);
+   
 
     while(valorSalario < 1){
         printf("Digite o valor do salario: ");
         scanf("%f", &valorSalario);
+        fflush("stdin");
     }
-    if(sexo == 'f' || sexo == 'F'){
+    if(sexo == "f" || sexo == "F"){
         strcpy(sexo, "Feminino");
+        fflush("stdin");
+        printf("aaaaaaaaaaa");
     }
     if(sexo == 'm' || sexo == 'M'){
         strcpy(sexo, "Masculino");
+        printf("bbbbbbbbbb");
+        fflush("stdin");
     }
-    printf("%s", sexo);
+    printf("ccccccccccc");
     classificaSalario(valorSalario);
-
     
     printf("Salario = %f, Classificacao = %s, sexo = %s", valorSalario, mostraClassifica(), sexo);
 
