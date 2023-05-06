@@ -1,25 +1,19 @@
 #include <stdio.h>
 
-float inflacionarPreco(float preco);
+int main (void){
 
-int main() {
-    float preco;
-    printf("Digite o preco do produto: ");
-    scanf("%f", &preco);
-    
-    preco = inflacionarPreco(preco);
-    
-    printf("Preco inflacionado: %.2f\n", preco);
-    
-    return 0;
-}
+    float vet1[10];
+    float vet2[10];
 
-float inflacionarPreco(float preco) {
-    if (preco < 100) {
-        preco *= 1.10; // inflaciona em 10%
-    } else {
-        preco *= 1.20; // inflaciona em 20%
+    for (int i = 0; i < 10; i++){
+        scanf("%f", &vet1[i]);
+        vet2[i] = vet1[i] * vet1[i];
     }
-    return preco;
+    printf("Quadrado dos valores");
+     for (int i = 0; i < 10; i++){
+        printf("%.2f\n", vet2[i]);
+    }
     
+
+    return 0;
 }

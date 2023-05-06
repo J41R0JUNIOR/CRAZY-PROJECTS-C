@@ -2,23 +2,60 @@
 
 int main (void){
 
-    int a[6];
+    float valor;
+    int forma;
+    float pagar;
+    float op1(float valor, float pagar);
+    float op2(float valor, float pagar);
+    float op3(float valor, float pagar, float t);
 
-    a[0] = 1;
-    a[1] = 0;
-    a[2] = 5;
-    a[3] = -2;
-    a[4] = -5;
-    a[5] = 7;
+    printf("Digite o valor: ");
+    scanf("%f", &valor);
 
-    int soma = a[0] + a[1] + a[2] + a[3] + a[4] + a[5];
-    printf("%d\n",soma);
+    printf("Forma de pagamento\n1- a vista com 10%% de desconto\n2- em duas vezes(preco de etiqueta)\n3- de 3 ate 10 vezes com 3%% de juros ao mes (somente para compras acima de R$100,00)\n");
+    scanf("%d", &forma);
 
-    a[4] = 100;
-    for(int i=0; i < 6; i++){
-        printf("%d", a[i]);
-        printf("\n");
+    if (forma == 1){
+        printf("Valor a pagar: R$%.2f", op1(valor, pagar));
+    }else if (forma == 2){
+        printf("Valor a pagar: R$%.2f", op2(valor, pagar));
+        
+    }else if (forma == 3){
+       float t;
+        while (valor < 100.0){
+            printf("Valor abaixo do esperado\nDigite o valor: ");
+            scanf("%f", &valor);
+        }
+        
+        printf("Digite quantaz vezes deseja dividir: ");
+        scanf("%f", &t);
+
+        while (t < 3 || t > 10){
+            printf("Tempo Invalido\nDigite quantaz vezes deseja dividir: ");
+            scanf("%f", &t);
+        }
+        
+        printf("Valor a pagar: R$%.2f", op3(valor, pagar, t));
     }
 
     return 0;
+}
+
+float op1(float valor, float pagar){
+    pagar = valor * 0.1;
+    return pagar;
+}
+
+float op2(float valor, float pagar){
+    pagar = valor;
+    return pagar;
+}
+
+float op3(float valor, float pagar, float t){
+    int vezes;
+    float j, c = valor, i = 0.03;
+
+    j = c * i * t;
+    pagar = valor + j;
+    return pagar;
 }
