@@ -1,12 +1,36 @@
 #include <stdio.h>
 
-int main (void){
+void imprimirTabelaDecimal();
+void imprimirTabelaHexadecimal();
 
-    int vet[6] = {0,6,4,7,2,3};
-
-    for(int i=0; i < 6; i++){
-        printf("%d", vet[i]);
-        printf("\n");
-    }
+int main() {
+    printf("Tabela ASCII - Decimal\n");
+    imprimirTabelaDecimal();
+    
+    printf("\nTabela ASCII - Hexadecimal\n");
+    imprimirTabelaHexadecimal();
+    
     return 0;
+}
+
+void imprimirTabelaDecimal() {
+    int i;
+    printf("+-------+---------+\n");
+    printf("| Decimal | Caracter |\n");
+    printf("+-------+---------+\n");
+    for (i = 0; i <= 127; i++) {
+        printf("| %d      | %c       |\n", i, i);
+    }
+    printf("+-------+---------+\n");
+}
+
+void imprimirTabelaHexadecimal() {
+    int i;
+    printf("+----------+---------+\n");
+    printf("| Hexadecimal | Caracter |\n");
+    printf("+----------+---------+\n");
+    for (i = 0; i <= 127; i++) {
+        printf("| 0x%02x       | %c       |\n", i, i);
+    }
+    printf("+----------+---------+\n");
 }
