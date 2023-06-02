@@ -1,19 +1,20 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main (void){
+    int a = 6, b = 12;
+    int dobro(int a);
 
-    int a = 3, b = 6;
-    int somaDoDobro (int a, int b);
-
-    printf("Soma do dobro = %i \na =  %i\nb = %i", somaDoDobro(a, b));
-
+    printf("antes %i\n", a);
+    dobro(a);
+    
+    printf("depois %i\n", a);
 
     return 0;
 }
-int somaDoDobro (int a, int b){
-    int somaDobro = 0;
+int dobro(int a){
+    int *pa;
+    //*pa = &a;
 
-    somaDobro = a + a + b + b;
 
-    return somaDobro;
 }
