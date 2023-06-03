@@ -3,18 +3,24 @@
 
 int main (void){
     int a = 6, b = 12;
-    int dobro(int a);
+    int *pa = &a, *pb = &b;
+    int dobro(int *pa, int *pb);
+    int somaDoDobro = 0;
 
-    printf("antes %i\n", a);
-    dobro(a);
+    printf("antes pa=%i\nantes pb=%i\n", a, b);
+
+    dobro(pa, pb);
     
-    printf("depois %i\n", a);
+    printf("depois pa=%i\ndepois pb=%i\n", a, b);
+
+    
+    somaDoDobro = a + b;
+    printf("%i", somaDoDobro);
 
     return 0;
 }
-int dobro(int a){
-    int *pa;
-    //*pa = &a;
-
-
+int dobro(int *pa, int *pb){
+    *pa = *pa + *pa;
+    *pb = *pb + *pb;
+    printf("func pa= %d\nfunc = pb %d\n", *pa, *pb);
 }
