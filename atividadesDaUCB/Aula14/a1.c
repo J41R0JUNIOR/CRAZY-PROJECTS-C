@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct {
+typedef struct{
     char nome[50];
     int idade;
     char genero;
@@ -10,21 +10,19 @@ typedef struct {
     char historico[100];
 } Anamnese;
 
-int main() {
+int main(){
     int numRegistros, i;
     Anamnese* registros;
 
     printf("Quantos registros de Anamnese deseja cadastrar? ");
     scanf("%d", &numRegistros);
 
-    // Aloca espaço para o vetor de registros
     registros = (Anamnese*)malloc(numRegistros * sizeof(Anamnese));
     if (registros == NULL) {
-        printf("Erro ao alocar memória.\n");
+        printf("Erro ao alocar memoria\n");
         return 1;
     }
 
-    // Preenche os registros
     for (i = 0; i < numRegistros; i++) {
         printf("\n--- Registro %d ---\n", i + 1);
         printf("Nome: ");
@@ -41,7 +39,6 @@ int main() {
         scanf(" %[^\n]s", registros[i].historico);
     }
 
-    // Imprime os registros cadastrados
     printf("\n--- Registros de Anamnese ---\n");
     for (i = 0; i < numRegistros; i++) {
         printf("\n--- Registro %d ---\n", i + 1);
@@ -53,7 +50,6 @@ int main() {
         printf("Histórico: %s\n", registros[i].historico);
     }
 
-    // Libera a memória alocada
     free(registros);
 
     return 0;
