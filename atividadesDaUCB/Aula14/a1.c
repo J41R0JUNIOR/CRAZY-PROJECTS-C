@@ -1,42 +1,60 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define TAM_MAX  5
 
-int main(void){
+typedef struct {
+    char nome[50];
+    int idade;
+    char genero;
+    float altura;
+    float peso;
+    char historico[100];
+} Anamnese;
 
-    //malloc
+int main() {
+    int numRegistros, i;
+    Anamnese* registros;
 
-    double *p = (double *) malloc(TAM_MAX * sizeof(double));
+    printf("Quantos registros de Anamnese deseja cadastrar? ");
+    scanf("%d", &numRegistros);
 
-     printf("\\\\\\Digitar os valores///\n");
-
-    for(int i = 0; i < TAM_MAX; ++i){
-        scanf("%lf", &p[i]);
+    // Aloca espaço para o vetor de registros
+    registros = (Anamnese*)malloc(numRegistros * sizeof(Anamnese));
+    if (registros == NULL) {
+        printf("Erro ao alocar memória.\n");
+        return 1;
     }
 
-    printf("\\\\\\Valores dentro do ponteiros///\n");
-    for(int i = 0; i < TAM_MAX; ++i){
-        printf("%d\n", &p[i]);
-        printf("%lf \n\n", p[i]);
-    }
-    
-
-    //realloc
-    double *q;
-
-    q = (double *) realloc(p, 2 * sizeof(double));
-
-    for(int i = 5; i < TAM_MAX + 2; ++i){
-        scanf("%lf", &q[i]);
-    }
-
-    printf("\\\\\\Valores dentro do ponteiros///\n");
-    for(int i = 0; i < TAM_MAX + 2; ++i){
-        printf("%d\n", &q[i]);
-        printf("%lf \n\n", q[i]);
+    // Preenche os registros
+    for (i = 0; i < numRegistros; i++) {
+        printf("\n--- Registro %d ---\n", i + 1);
+        printf("Nome: ");
+        scanf(" %[^\n]s", registros[i].nome);
+        printf("Idade: ");
+        scanf("%d", &registros[i].idade);
+        printf("Gênero (M/F): ");
+        scanf(" %c", &registros[i].genero);
+        printf("Altura (em metros): ");
+        scanf("%f", &registros[i].altura);
+        printf("Peso (em kg): ");
+        scanf("%f", &registros[i].peso);
+        printf("Histórico: ");
+        scanf(" %[^\n]s", registros[i].historico);
     }
 
-    free(p);
+    // Imprime os registros cadastrados
+    printf("\n--- Registros de Anamnese ---\n");
+    for (i = 0; i < numRegistros; i++) {
+        printf("\n--- Registro %d ---\n", i + 1);
+        printf("Nome: %s\n", registros[i].nome);
+        printf("Idade: %d\n", registros[i].idade);
+        printf("Gênero: %c\n", registros[i].genero);
+        printf("Altura: %.2f\n", registros[i].altura);
+        printf("Peso: %.2f\n", registros[i].peso);
+        printf("Histórico: %s\n", registros[i].historico);
+    }
+
+    // Libera a memória alocada
+    free(registros);
 
     return 0;
 }
