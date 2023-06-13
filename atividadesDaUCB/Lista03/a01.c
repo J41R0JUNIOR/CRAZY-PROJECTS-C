@@ -1,36 +1,79 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-struct Restaurante{
-    char nomeRest[50];
-    char enderecoRest[100];
-    float precoMedioRest;
-    char tipoComidaRest[50];
+// Definição da estrutura Restaurante
+typedef struct Restaurante {
+    char nome[50];
+    char endereco[100];
+    float precoMedio;
+    char tipoComida[50];
     struct Restaurante* proximo;
-}typedef Rest;
+} Restaurante;
 
-int main (void){
-    Rest *inicio =(Rest *)malloc(sizeof(Rest));
-    int qtd = 0;
+// Função para solicitar os dados de um elemento da lista
+void solicitarDados(Restaurante* restaurante) {
+    printf("Nome: ");
+    scanf(" %[^\n]s", restaurante->nome);
+    printf("Endereco: ");
+    scanf(" %[^\n]s", restaurante->endereco);
+    printf("Preco Medio: ");
+    scanf("%f", &(restaurante->precoMedio));
+    printf("Tipo de Comida: ");
+    scanf(" %[^\n]s", restaurante->tipoComida);
+}
 
-    //inicio da lista
-    inicio->proximo = NULL;
+// Função para listar todos os dados da lista
+void listarDados(Restaurante* lista) {
+    if (lista == NULL) {
+        printf("Lista vazia.\n");
+        return;
+    }
 
-    //adicionando elementso
-    Rest *Elemento =(Rest *)malloc(sizeof(Rest));
-    
+    printf("--- Dados dos Restaurantes ---\n");
+    int count = 1;
+    while (lista != NULL) {
+        printf("\nRestaurante %d:\n", count);
+        printf("Nome: %s\n", lista->nome);
+        printf("Endereco: %s\n", lista->endereco);
+        printf("Preco Medio: %.2f\n", lista->precoMedio);
+        printf("Tipo de Comida: %s\n", lista->tipoComida);
 
+        lista = lista->proximo;
+        count++;
+    }
+}
+
+int main() {
+    int numRestaurantes, i;
+    Restaurante* lista = NULL;
+
+    printf("Quantos restaurantes deseja cadastrar? ");
+    scanf("%d", &numRestaurantes);
+
+    // Criação da lista encadeada
+    for (i = 0; i < numRestaurantes; i++) {
+        Restaurante* novoRestaurante = (Restaurante*)malloc(sizeof(Restaurante));
+        if (novoRestaurante == NULL) {
+            printf("Erro ao alocar memória.\n");
+            return 1;
+        }
+
+        solicitarDados(novoRestaurante);
+
+        novoRestaurante->proximo = lista;
+        lista = novoRestaurante;
+    }
+
+    // Listagem dos dados dos restaurantes cadastrados
+    listarDados(lista);
+
+    // Liberação da memória alocada
+    while (lista != NULL) {
+        Restaurante* temp = lista;
+        lista = lista->proximo;
+        free(temp);
+    }
 
     return 0;
-}
-
-void solicitarDados(){
-    printf("Sobre o Restaurante\n");
-    printf("Nome: ");
-    printf("Endereco: ");
-    printf("Preco Medio: ");
-    printf("Tipo de Comida: ");
-}
-void listarDados(){
-
 }
