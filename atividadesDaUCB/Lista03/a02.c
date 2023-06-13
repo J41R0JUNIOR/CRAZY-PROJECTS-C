@@ -33,11 +33,14 @@ Dieta* inserirAlimento (Dieta* dieta){
 
     printf("Digite o nome da comida: ");
     scanf("%[ˆ\n]s", &novoNo->nomeComida);
+    printf("%s", novoNo->nomeComida);
     fflush(stdin);
     printf("Digite o peso da porcao: ");
     scanf("%f", &novoNo->pesoPorcao);
+    printf("%s", novoNo->pesoPorcao);
     printf("Digite o numero de calorias da porcao: ");
     scanf("%d", &novoNo->numeroCalorias);
+    printf("%s", novoNo->numeroCalorias);
     return novoNo;
 }
 
@@ -46,6 +49,7 @@ void imprimir(Dieta* dieta){
         printf("\nLista vazia\n");
         return;
     }
+    printf("\\\\\\PRATOS////\n");
     Dieta* p = dieta;
     while(p != NULL){
         printf("Nome da porcao\n", p->nomeComida);
@@ -58,7 +62,6 @@ void imprimir(Dieta* dieta){
 int main (){
     Dieta* dieta;
     char escolha;
-    unsigned int teste = -5;
 
     dieta = inicializa();
 
@@ -71,7 +74,6 @@ int main (){
             dieta = inserirAlimento(dieta);
         }
         else if(escolha == 'v'){
-            printf("\\\\\\PRATOS////\n");
             imprimir(dieta);
         }
         else if(escolha == 's'){
