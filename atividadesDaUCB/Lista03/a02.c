@@ -26,13 +26,14 @@ int vazia(Dieta* dieta){
     }
 }
 
+
 Dieta* inserirAlimento (Dieta* dieta){
 
     Dieta* novoNo = (Dieta*)malloc(sizeof(Dieta));
     novoNo->no = dieta;
 
     printf("Digite o nome da comida: ");
-    scanf("%[ˆ\n]s", &novoNo->nomeComida);
+    scanf("%[^\n]s", &novoNo->nomeComida);
     printf("%s", novoNo->nomeComida);
     fflush(stdin);
     printf("Digite o peso da porcao: ");
