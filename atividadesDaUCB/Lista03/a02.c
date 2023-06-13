@@ -26,7 +26,6 @@ int vazia(Dieta* dieta){
     }
 }
 
-
 Dieta* inserirAlimento (Dieta* dieta){
 
     Dieta* novoNo = (Dieta*)malloc(sizeof(Dieta));
