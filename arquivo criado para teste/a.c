@@ -9,6 +9,7 @@ typedef struct No{
 int main (void){
 
     //iniciar lista encadeada
+    
 
     No* inicio = (No*)malloc(sizeof(No));
     inicio->proximo = NULL;
