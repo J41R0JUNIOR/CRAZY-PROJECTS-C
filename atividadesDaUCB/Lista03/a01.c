@@ -55,9 +55,12 @@ int main() {
 void solicitarDados(Restaurante* restaurante) {
     printf("Nome: ");
     scanf(" %[^\n]s", restaurante->nome);
+    scanf(" %[^\n]s", restaurante->nome);
     printf("Endereco: ");
     scanf(" %[^\n]s", restaurante->endereco);
+    scanf(" %[^\n]s", restaurante->endereco);
     printf("Preco Medio: ");
+    scanf("%f", &(restaurante->precoMedio));
     scanf("%f", &(restaurante->precoMedio));
     printf("Tipo de Comida: ");
     scanf(" %[^\n]s", restaurante->tipoComida);
