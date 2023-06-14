@@ -3,90 +3,66 @@ Crie uma estrutura, com o nome Dieta, para armazenar em uma lista encadeada o no
 */
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-typedef struct dieta{
+typedef struct dieta {
     char nomeComida[50];
     float pesoPorcao;
     int numeroCalorias;
-    struct dieta* no;
+    struct dieta* No;
+} Dieta;
 
-}Dieta;
-
-
-Dieta* inicializa(void){
-
+Dieta* inicializa() {
     return NULL;
 }
 
-
-int vazia(Dieta* dieta){
-
-    if(dieta == NULL){
+int vazia(Dieta* dieta) {
+    if (dieta == NULL) {
         return 1;
-    }else{
+    } else {
         return 0;
     }
 }
 
-
-Dieta* inserirAlimento (Dieta* dieta){
-
+Dieta* insereInicio(Dieta* dieta) {
     Dieta* novoNo = (Dieta*)malloc(sizeof(Dieta));
-    novoNo->no = dieta;
-    fflush(stdin);
-    printf("Nome da comida");
-    scanf("%[^\n]s", &novoNo->nomeComida);
-    fflush (stdin);
-   
 
-    novoNo->numeroCalorias = 110;
-    novoNo->pesoPorcao = 12.3;
+    novoNo->No = dieta;
+    strcpy(novoNo->nomeComida, "Comida1");
+    novoNo->pesoPorcao = 10.1;
+    novoNo->numeroCalorias = 120;
 
+    dieta = novoNo;  // Assign the newly created node to the list
 
-    return novoNo;
+    return dieta;  // Return the updated list
 }
 
-
-void imprimir(Dieta* dieta){
-    if(vazia){
-        printf("\nLista vazia\n");
+void imprime(Dieta* dieta) {
+    if (vazia(dieta)) {
+        printf("Lista Vazia\n");
         return;
     }
-    printf("\\\\\\PRATOS////\n");
+
     Dieta* p = dieta;
-    while(p != NULL){
-        printf("Nome da comida\n", p->nomeComida);
-        printf("Peso da porcao\n", p->pesoPorcao);
-        printf("Calorias da porcao\n", p->numeroCalorias);
-        p = p->no;
+
+    printf("Inicio da lista\n");
+    while (p != NULL) {
+        printf("------------------------\n");
+        printf("teste\n");
+        printf("%s\n", p->nomeComida);
+        printf("%f\n", p->pesoPorcao);
+        printf("%d\n", p->numeroCalorias);
+        p = p->No;
     }
+    printf("Fim da lista\n");
 }
 
-
-int main (){
+int main(void) {
     Dieta* dieta;
-    char escolha;
-
     dieta = inicializa();
+    dieta = insereInicio(dieta);
 
-    while(escolha != 's'){
-        printf("Escolhas: \na - adicionar comida\nv - ver comidas\ns - sair\nResposta: ");
-        scanf(" %c", &escolha);
-        printf("\n");
+    imprime(dieta);
 
-        if(escolha == 'a'){
-            dieta = inserirAlimento(dieta);
-        }
-        else if(escolha == 'v'){
-            imprimir(dieta);
-        }
-        else if(escolha == 's'){
-            break;
-        }
-        else{
-            printf("opcao invalida!!!\n ");
-            continue;
-        }
-    }
     return 0;
 }

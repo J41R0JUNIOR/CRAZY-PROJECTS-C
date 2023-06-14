@@ -3,6 +3,7 @@ Crie uma estrutura, com o nome Dieta, para armazenar em uma lista encadeada o no
 */
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct dieta {
     char nomeComida[50];
@@ -11,7 +12,7 @@ typedef struct dieta {
     struct dieta* No;
 } Dieta;
 
-Dieta* inicializa(void){
+Dieta* inicializa(){
     return NULL;
 }
 
@@ -23,9 +24,14 @@ int vazia(Dieta* dieta){
     }
 }
 
-Dieta* insereInicio(Dieta* dieta, char nomeComida, float pesoPorcao, int numeroCalorias){
+Dieta* insereInicio(Dieta* dieta){
     Dieta* novoNo = (Dieta*)malloc(sizeof(Dieta));
+
     novoNo->No = dieta;
+    strcpy(novoNo->nomeComida, "Comida1");
+    fflush(stdin);
+    novoNo->pesoPorcao = 10.1;
+    novoNo->numeroCalorias = 120;
 }
 
 void imprime(Dieta* dieta){
@@ -35,22 +41,35 @@ void imprime(Dieta* dieta){
     }
 
     Dieta* p = dieta;
-    printf("Inicio da lista\n\n");
+
+    printf("Inicio da lista\n");
     while(p != NULL){
-        printf("%s\n", dieta->nomeComida);
+        printf("------------------------\n");
+        printf("teste\n");
+
+        printf("%s", p->nomeComida);
         printf("%f\n", p->pesoPorcao);
         printf("%d\n", p->numeroCalorias);
         p = p->No;
+    
     }
-    printf("\n\nFim da lista");
+    printf("\nFim da lista\n");
 }
 
 int main(void){
 
     Dieta* dieta;
 
+    char nomeComida[50];
+    float pesoPorcao;
+    int numeroCalorias;
+
     dieta = inicializa();
-    dieta = insereInicio(dieta, "macarrao", 1.18, 150);
+    dieta = insereInicio(dieta);
+    fflush(stdin);
+            
+    
+
     imprime(dieta);
     
 
