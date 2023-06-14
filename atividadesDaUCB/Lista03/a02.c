@@ -12,10 +12,12 @@ typedef struct dieta{
 
 }Dieta;
 
+
 Dieta* inicializa(void){
 
     return NULL;
 }
+
 
 int vazia(Dieta* dieta){
 
@@ -26,23 +28,24 @@ int vazia(Dieta* dieta){
     }
 }
 
+
 Dieta* inserirAlimento (Dieta* dieta){
 
     Dieta* novoNo = (Dieta*)malloc(sizeof(Dieta));
     novoNo->no = dieta;
-
-    printf("Digite o nome da comida: ");
-    scanf("%[^\n]s", &novoNo->nomeComida);
-    printf("%s", novoNo->nomeComida);
     fflush(stdin);
-    printf("Digite o peso da porcao: ");
-    scanf("%f", &novoNo->pesoPorcao);
-    printf("%s", novoNo->pesoPorcao);
-    printf("Digite o numero de calorias da porcao: ");
-    scanf("%d", &novoNo->numeroCalorias);
-    printf("%s", novoNo->numeroCalorias);
+    printf("Nome da comida");
+    scanf("%[^\n]s", &novoNo->nomeComida);
+    fflush (stdin);
+   
+
+    novoNo->numeroCalorias = 110;
+    novoNo->pesoPorcao = 12.3;
+
+
     return novoNo;
 }
+
 
 void imprimir(Dieta* dieta){
     if(vazia){
@@ -52,12 +55,13 @@ void imprimir(Dieta* dieta){
     printf("\\\\\\PRATOS////\n");
     Dieta* p = dieta;
     while(p != NULL){
-        printf("Nome da porcao\n", p->nomeComida);
+        printf("Nome da comida\n", p->nomeComida);
         printf("Peso da porcao\n", p->pesoPorcao);
         printf("Calorias da porcao\n", p->numeroCalorias);
         p = p->no;
     }
 }
+
 
 int main (){
     Dieta* dieta;
@@ -83,10 +87,6 @@ int main (){
             printf("opcao invalida!!!\n ");
             continue;
         }
-        
     }
-    return 0;
-}
-
     return 0;
 }

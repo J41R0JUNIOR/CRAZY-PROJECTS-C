@@ -1,51 +1,57 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-struct Restaurante{
-    char nomeRest[50];
-    char enderecoRest[100];
-    float precoMedioRest;
-    char tipoComidaRest[50];
-    struct Restaurante* proximo;
-}typedef Rest;
+/*
+Crie uma estrutura, com o nome Dieta, para armazenar em uma lista encadeada o nome de uma comida, o peso de uma porção e o número de calorias. Escreva um programa semelhante a questão 1
+*/
 
-int main (void){
-    Rest *inicio =(Rest *)malloc(sizeof(Rest));
-    int qtd = 0;
-    char escolha;
+typedef struct Dieta {
+    char nomeComida[50];
+    float pesoPorcao;
+    int numeroCalorias;
+    struct Dieta* No;
+} Dieta;
 
-    //inicio da lista
-    inicio->proximo = NULL;
 
-    //adicionando elementso
-    
-    
-    while(escolha != 'S'){
+int main(void){
+    Dieta *lista = NULL;
 
-        printf("A - Adicionar");
-        switch (escolha){
-        case 'A':
+    Dieta* novoNo = (Dieta*)malloc(sizeof(Dieta));
+    solicitarDados(novoNo);
 
-            break;
-        case 'B':
+    novoNo->No = lista;
+    lista = novoNo;
 
-            break;
-        default:
-            break;
-        }
-        Rest *Elemento =(Rest *)malloc(sizeof(Rest));
+    listarDados(lista);
+
+    while (lista != NULL) {
+        Dieta* temp = lista;
+        lista = lista->No;
+        free(temp);
     }
 
     return 0;
 }
 
-void solicitarDados(){
-    printf("Sobre o Restaurante\n");
-    printf("Nome: ");
-    printf("Endereco: ");
-    printf("Preco Medio: ");
-    printf("Tipo de Comida: ");
+void solicitarDados(Dieta* dieta) {
+    printf("Nome da comida: ");
+    scanf("%[^\n]s", &dieta->nomeComida);
+    fflush(stdin);
+    printf("Peso de uma porcao: ");
+    scanf("%f", &dieta->pesoPorcao);
+    printf("Numero de calorias: ");
+    scanf("%d", &dieta->numeroCalorias);
 }
-void listarDados(){
 
+void listarDados(Dieta* lista){
+    if (lista == NULL) {
+        printf("Lista vazia.\n");
+        return;
+    }
+
+    printf("--- Dados das Comidas ---");
+    printf("\n%s", lista->nomeComida);
+    printf("\n%f", lista->pesoPorcao);
+    printf("\n%d", lista->numeroCalorias);
 }
