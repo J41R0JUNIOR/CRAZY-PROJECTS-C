@@ -43,9 +43,8 @@ void imprime(Dieta* dieta){
     Dieta* p = dieta;
 
     printf("Inicio da lista\n");
-    while(p != NULL){
+    while(p != NULL){ 
         printf("------------------------\n");
-        printf("teste\n");
 
         printf("%s", p->nomeComida);
         printf("%f\n", p->pesoPorcao);

@@ -28,9 +28,17 @@ Dieta* insereInicio(Dieta* dieta) {
     Dieta* novoNo = (Dieta*)malloc(sizeof(Dieta));
 
     novoNo->No = dieta;
-    strcpy(novoNo->nomeComida, "Comida1");
-    novoNo->pesoPorcao = 10.1;
-    novoNo->numeroCalorias = 120;
+    fflush(stdin);
+    printf("Nome da comida: ");
+    scanf("%[^\n]s", novoNo->nomeComida);
+    fflush(stdin);
+    //strcpy(novoNo->nomeComida, "Comida1");
+    printf("Peso da Porcao: ");
+    scanf("%f", &novoNo->pesoPorcao);
+    //novoNo->pesoPorcao = 10.1;
+    printf("Numero de Calorias: ");
+    scanf("%d", &novoNo->numeroCalorias);
+    //novoNo->numeroCalorias = 120;
 
     dieta = novoNo;  // Assign the newly created node to the list
 
@@ -59,8 +67,19 @@ void imprime(Dieta* dieta) {
 
 int main(void) {
     Dieta* dieta;
+    int escolha = 0;
+
     dieta = inicializa();
-    dieta = insereInicio(dieta);
+    //dieta = insereInicio(dieta);
+    printf("1- sair 2- adicionar\n");
+    while(escolha != 1){
+        printf("Escolha:");
+        scanf("%d", &escolha);
+        if(escolha == 1){
+            break;
+        }
+        dieta = insereInicio(dieta);
+    }
 
     imprime(dieta);
 
