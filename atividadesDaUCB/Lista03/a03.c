@@ -20,7 +20,7 @@ b. Uma função que liste todas as placas que comecem com a letra J e terminem c
 
 c. Uma função que liste o modelo e a cor dos veículos cujas placas possuem como segunda letra uma vogal e cuja soma dos valores numéricos fornece um número par.
 
- d. Uma função que permita a troca de proprietário com o fornecimento do número do chassi apenas para carros com placas que não possuam nenhum dígito igual a zero. */
+d. Uma função que permita a troca de proprietário com o fornecimento do número do chassi apenas para carros com placas que não possuam nenhum dígito igual a zero. */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -56,7 +56,7 @@ RegistroVeiculos* insereInicio(RegistroVeiculos* registroVeiculos){
     printf("Proprietario: ");
     scanf("%[^\n]s", novoNo->proprietario);
     fflush(stdin);
-    /*
+    
     printf("Combustivel: ");
     scanf("%[^\n]s", novoNo->combustivel);
     fflush(stdin);
@@ -77,7 +77,7 @@ RegistroVeiculos* insereInicio(RegistroVeiculos* registroVeiculos){
     printf("Numero do Chassi: ");
     scanf("%d", &novoNo->numeroChassi);
     fflush(stdin);
-    */
+    
     printf("Ano: ");
     scanf("%d", &novoNo->ano);
     fflush(stdin);
@@ -134,12 +134,11 @@ RegistroVeiculos* insereInicio(RegistroVeiculos* registroVeiculos){
 }
 
 void imprime(RegistroVeiculos* registroVeiculos){
+    RegistroVeiculos* p = registroVeiculos;
     if (vazia(registroVeiculos)) {
         printf("Lista Vazia\n");
         return;
     }
-
-    RegistroVeiculos* p = registroVeiculos;
 
     printf("Inicio da lista\n");
     while (p != NULL) {
@@ -161,6 +160,7 @@ void addVetor(RegistroVeiculos* registroVeiculos){
 
     if (vazia(registroVeiculos)) {
         printf("Lista Vazia\n");
+        return;
     }
 
     while (p != NULL) {
@@ -170,12 +170,11 @@ void addVetor(RegistroVeiculos* registroVeiculos){
             fflush(stdin);
             printf("%s\n", c1[i]);
             i++;
-
-            p = p->No;
-        }else{
-            return;
+ 
         }
+        p = p->No;
     }
+    return;
 }
 
 char c2[200][7];
@@ -185,6 +184,7 @@ void addVetor2(RegistroVeiculos* registroVeiculos){
 
     if (vazia(registroVeiculos)) {
         printf("Lista Vazia\n");
+        return;
     }
 
     while (p != NULL){
@@ -194,13 +194,68 @@ void addVetor2(RegistroVeiculos* registroVeiculos){
             fflush(stdin);
             printf("%s\n", c2[i]);
             i++;
-            
-            p = p->No;
-        }else{
+        }
+        p = p->No;
+    } 
+    return;
+}
+
+char c3Modelo[200][50];
+char c3Cor[200][50];
+void addVetor3(RegistroVeiculos* registroVeiculos){
+    RegistroVeiculos* p = registroVeiculos;
+    int i = 0;
+    
+    if (vazia(registroVeiculos)) {
+        printf("Lista Vazia\n");
+        return;
+    }
+    printf("Modelo e cor dos veículos cujas placas possuem como segunda letra uma vogal e a soma dos valores numéricos resulta em um número par:\n");
+    
+    while (p != NULL){
+        if((p->placa[1] == 'a' || p->placa[1] == 'e' || p->placa[1] == 'i' || p->placa[1] == 'o' || p->placa[1] == 'u')){
+            int soma = 0;
+            for (int j = 3; j < 7; j++) {
+                soma += (p->placa[j] - '0');
+            }
+            if (soma % 2 == 0){
+                strcpy(c3Modelo[i], p->modelo);
+                strcpy(c3Cor[i], p->cor);
+                i++;
+            }
+        }
+        p = p->No;
+    }
+
+    for (int j = 0; j < i; j++) {
+        printf("Modelo: %s\t Cor: %s\n", c3Modelo[j], c3Cor[j]);
+    }
+}
+
+void trocaProprietario(RegistroVeiculos* registroVeiculos, int numeroChassi) {
+    RegistroVeiculos* p = registroVeiculos;
+
+    while (p != NULL) {
+        int possuiZero = 0;
+        for (int i = 3; i < 7; i++) {
+            if (p->placa[i] == '0') {
+                possuiZero = 1;
+                break;
+            }
+        }
+
+        if (!possuiZero && p->numeroChassi == numeroChassi) {
+            printf("Novo proprietario para o veiculo de chassi %d: ", numeroChassi);
+            scanf(" %[^\n]s", p->proprietario);
             return;
         }
-    } 
+
+        p = p->No;
+    }
+
+    printf("Nao foi encontrado um veiculo com chassi %d ou que atenda aos requisitos da placa.\n", numeroChassi);
 }
+
 
 
 
@@ -213,10 +268,10 @@ int main (void){
 
     registroVeiculos = inicializa();
 
-    printf("1- sair || 2- adicionar || 3- imprimir || 4- condicao 1 || 5- condicao 2\n");
+    printf("1- sair || 2- adicionar || 3- imprimir || 4- condicao 1 || 5- condicao 2 || 6- condicao 3 || 7- condicao 4\n");
     while(escolha != 1){
         printf("Escolha:");
-            scanf("%d", &escolha);
+        scanf("%d", &escolha);
         if(escolha == 2){
             
             if(escolha == 1){
@@ -231,18 +286,33 @@ int main (void){
         }
 
         if(escolha == 4){
-            printf("condicao 1");
+            printf("\ncondicao 1");
             printf("\n\n\n");
             addVetor(registroVeiculos);
             printf("\n\n\n");
-            continue;
         }
         if(escolha == 5){
-            printf("condicao 2");
+            printf("\ncondicao 2");
             printf("\n\n\n");
             addVetor2(registroVeiculos);
             printf("\n\n\n");
         }
+        if(escolha == 6){
+            printf("\ncondicao 3");
+            printf("\n\n\n");
+            addVetor3(registroVeiculos);
+            printf("\n\n\n");
+        }
+        if (escolha == 7) {
+             printf("\ncondicao 3");
+            printf("\n\n\n");
+            int numeroChassi;
+            printf("Digite o numero do chassi do veiculo: ");
+            scanf("%d", &numeroChassi);
+            trocaProprietario(registroVeiculos, numeroChassi);
+            printf("\n\n\n");
+        }
+        
         
     }
     

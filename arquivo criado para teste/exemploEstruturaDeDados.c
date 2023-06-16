@@ -111,7 +111,6 @@ int main (void){
 
 //passar como parametro para as funções
     Lista* lista;
-    
 
     lista = inicializa();
     lista = insereInicio(lista, 10);
