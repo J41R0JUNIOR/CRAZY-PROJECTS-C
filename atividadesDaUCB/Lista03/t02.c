@@ -67,8 +67,6 @@ int main(void){
     dieta = insereInicio(dieta);
     fflush(stdin);
             
-    
-
     imprime(dieta);
     
 
