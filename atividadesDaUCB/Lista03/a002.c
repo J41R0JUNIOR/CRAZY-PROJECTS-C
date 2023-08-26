@@ -33,11 +33,11 @@ void imprime(Dieta* dieta){
         printf("Lista Vazia");
         return;
     }
-
+    
     Dieta* p = dieta;
     printf("Inicio da lista\n\n");
     while(p != NULL){
-        printf("%s\n", dieta->nomeComida);
+        printf("%s\n", p->nomeComida);
         printf("%f\n", p->pesoPorcao);
         printf("%d\n", p->numeroCalorias);
         p = p->No;
