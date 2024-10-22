@@ -1,4 +1,0 @@
-Matemática: 2.00
-Física: 3.00
-Química: 1.00
-Média: 2.00
